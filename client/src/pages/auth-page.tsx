@@ -16,7 +16,6 @@ export default function AuthPage() {
     document.title = "futureKonnect | Authentication";
   }, []);
 
-  // If the user is already logged in, redirect to the dashboard
   if (user && !isLoading) {
     return <Redirect to="/" />;
   }
@@ -51,36 +50,6 @@ export default function AuthPage() {
         </Card>
       </div>
 
-      <div className="hidden lg:flex flex-1 bg-gradient-to-br from-background to-background-lighter p-8 flex-col justify-center">
-        <div className="max-w-lg">
-          <h2 className="text-3xl font-bold mb-4">
-            Network Management Dashboard
-          </h2>
-          <p className="text-text-secondary mb-6">
-            Welcome to futureKonnect, the comprehensive network management solution 
-            for monitoring your routers, hotspots, and fleet connectivity. Track 
-            data usage, manage tenants, and maintain security through our powerful dashboard.
-          </p>
-          <ul className="space-y-3">
-            <li className="flex items-center">
-              <span className="mr-2 flex-shrink-0 w-5 h-5 bg-primary rounded-full flex items-center justify-center text-white">✓</span>
-              <span>Real-time monitoring of network devices</span>
-            </li>
-            <li className="flex items-center">
-              <span className="mr-2 flex-shrink-0 w-5 h-5 bg-primary rounded-full flex items-center justify-center text-white">✓</span>
-              <span>Comprehensive audit trails and logging</span>
-            </li>
-            <li className="flex items-center">
-              <span className="mr-2 flex-shrink-0 w-5 h-5 bg-primary rounded-full flex items-center justify-center text-white">✓</span>
-              <span>Tenant management and data usage analytics</span>
-            </li>
-            <li className="flex items-center">
-              <span className="mr-2 flex-shrink-0 w-5 h-5 bg-primary rounded-full flex items-center justify-center text-white">✓</span>
-              <span>Firewall template configuration</span>
-            </li>
-          </ul>
-        </div>
-      </div>
     </div>
   );
 }

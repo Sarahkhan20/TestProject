@@ -1,4 +1,4 @@
-import passport from "passport";
+import passport, { use } from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import { Express } from "express";
 import session from "express-session";
@@ -8,6 +8,7 @@ import { storage } from "./storage";
 import { User as SelectUser } from "@shared/schema";
 import { z } from "zod";
 import { insertUserSchema } from "@shared/schema";
+import { log } from "./vite";
 
 declare global {
   namespace Express {
@@ -86,23 +87,24 @@ export function setupAuth(app: Express) {
       
       const userData = registerSchema.parse(req.body);
       
+      // console.log("kuch bhi");
+      
       // Check if user already exists
       const existingUser = await storage.getUserByEmail(userData.email);
       if (existingUser) {
         return res.status(400).json({ message: "Email already in use" });
       }
-      
       const existingUsername = await storage.getUserByUsername(userData.username);
       if (existingUsername) {
         return res.status(400).json({ message: "Username already exists" });
       }
-
+      
       // Hash the password and create the user
       const user = await storage.createUser({
         ...userData,
         password: await hashPassword(userData.password),
       });
-
+      console.log(user);
       // Create audit trail entry
       await storage.createAuditTrail({
         description: `User ${user.name} was registered`,
