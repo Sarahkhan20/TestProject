@@ -1,6 +1,4 @@
-# futureKonnect - Network Management Dashboard
-
-A modern network management dashboard application for managing tenants, fleets, routers, and hotspot users.
+# futureKonnect 
 
 ## Project Setup Instructions
 
@@ -11,12 +9,7 @@ Follow these steps to run the project on your local computer after downloading t
 - Node.js (v16 or higher)
 - npm (usually comes with Node.js)
 - PostgreSQL database
-
-### Step 1: Extract the zip file
-
-Extract the downloaded zip file to a directory of your choice.
-
-### Step 2: Install dependencies
+### Step 1: Install dependencies
 
 Open a terminal or command prompt, navigate to the project directory, and run:
 
@@ -24,7 +17,7 @@ Open a terminal or command prompt, navigate to the project directory, and run:
 npm install
 ```
 
-### Step 3: Set up the database
+### Step 2: Set up the database
 
 1. Create a PostgreSQL database for the project
 2. Set up the following environment variables with your database connection details:
